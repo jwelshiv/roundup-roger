@@ -8,14 +8,12 @@ describe ProcessPayload do
     ProcessPayload.call(JSON.parse(payload_json))
   end
 
-  let(:email) { Email.new DB[:emails].first }
-
   it "should store the payload" do
-    expect(email).to_not be_nil
+    expect(DB[:emails].first).to_not be_nil
   end
 
   describe "persisted email" do
-    
+    let(:email) { Email.new DB[:emails].first }
     subject { email }
 
     its(:from_name)  { "Philippe Creux" }
