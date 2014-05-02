@@ -12,8 +12,7 @@ class ProcessPayload
   attr_reader :payload
 
   def call
-    emails = DB[:emails]
-    emails.insert(:payload => payload, :from_name => from_name, :from_email => from_email, :body => body)
+    Email.create(:payload => payload, :from_name => from_name, :from_email => from_email, :body => body)
   end
 
   private
