@@ -1,17 +1,11 @@
-require 'rom'
-require 'axiom-memory-adapter'
+require 'sequel'
 
-env = ROM::Environment.setup(memory: 'memory://test')
+DB = Sequel.sqlite # memory database
 
-env.schema do
-  base_relation :emails do
-    repository :memory
-
-    attribute :id, Integer
-    attribute :payload, Array
-    attribute :from, String
-    attribute :body, String
-
-    key :id
-  end
+DB.create_table :emails do
+  primary_key :id
+  String :payload
+  String :from_email
+  String :from_name
+  String :body
 end

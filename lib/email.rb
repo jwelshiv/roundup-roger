@@ -3,13 +3,7 @@ class Email
 
   attribute :id, Integer
   attribute :payload
-  attribute :from, String
+  attribute :from_name, String
+  attribute :from_email, String
   attribute :body, String
-end
-
-env.mapping do
-  emails do
-    map :id, :payload, :from, :body
-    model Email
-  end
 end
