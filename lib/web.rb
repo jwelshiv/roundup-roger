@@ -1,6 +1,4 @@
-require 'bundler'
-Bundler.require
-require 'roundup_roger'
+require_relative 'roundup_roger'
 
 get '/' do
   "Hello!"
