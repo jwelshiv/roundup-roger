@@ -28,6 +28,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    pg (0.17.1)
     polyglot (0.3.4)
     pony (1.8)
       mail (>= 2.0)
@@ -73,6 +74,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  pg
   pony
   pry
   pry-debugger
