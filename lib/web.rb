@@ -1,4 +1,5 @@
 require_relative 'roundup_roger'
+require 'json'
 
 get '/' do
   "Hello!"
