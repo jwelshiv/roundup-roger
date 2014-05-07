@@ -1,6 +1,6 @@
 require 'sequel'
 
-DB = Sequel.sqlite # memory database
+DB = Sequel.connect(ENV['DATABASE_URL'])
 
 DB.create_table :emails do
   primary_key :id
