@@ -10,3 +10,8 @@ end
 task :email do
   SendOutboundEmail.call OutboundEmail.new(to: ["pcreux@gmail.com"], subject: "Moo!", body: "Hello!")
 end
+
+task :send_roundup do
+  SendRoundupEmail.call
+end
+

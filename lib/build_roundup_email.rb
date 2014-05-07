@@ -3,11 +3,12 @@ class BuildRoundupEmail
     new(*args).call
   end
 
-  def initialize(current_time=Time.now)
+  def initialize(team_members, current_time=Time.now)
+    @team_members = team_members
     @current_time = current_time
   end
 
-  attr_reader :current_time
+  attr_reader :current_time, :team_members
 
   def call
     OutboundEmail.new(to: recipients, body: body, subject: subject)
@@ -16,7 +17,7 @@ class BuildRoundupEmail
   private
 
   def recipients
-    TEAM_MEMBERS.map do |name, email|
+    team_members.map do |name, email|
       "#{name} <#{email}>"
     end
   end

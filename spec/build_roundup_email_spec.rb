@@ -1,12 +1,11 @@
-TEAM_MEMBERS = {
-  "Philippe Creux" => "pcreux@gmail.com",
-  "Jenn Cooper" => "cooper.jennl@gmail.com"
-}
-
 require 'roundup_roger'
 
 describe BuildRoundupEmail do
-  let(:outbound_email) { BuildRoundupEmail.call(Time.new(2014, 05, 02, 8)) }
+  let(:team_members) {
+    { "Philippe Creux" => "pcreux@gmail.com",
+      "Jenn Cooper" => "cooper.jennl@gmail.com" }
+  }
+  let(:outbound_email) { BuildRoundupEmail.call(team_members, Time.new(2014, 05, 02, 8)) }
   
   it "works" do
     outbound_email.should be_a OutboundEmail
