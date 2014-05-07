@@ -14,7 +14,7 @@ class ProcessPayload
   attr_reader :payload
 
   def call
-    Email.create(:payload => JSON.encode(payload), :from_name => from_name, :from_email => from_email, :body => body)
+    Email.create(:payload => JSON.generate(payload), :from_name => from_name, :from_email => from_email, :body => body)
   end
 
   private
