@@ -21,7 +21,7 @@ class BuildRoundupEmail
       "#{email.from_name}
 
 #{email.stripped_body}"
-    end.join("\n\n #{separator} \n\n")
+    end.join { "\n\n #{separator} \n\n" }
   end
 
   def subject
