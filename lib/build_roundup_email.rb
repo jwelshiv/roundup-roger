@@ -3,24 +3,18 @@ class BuildRoundupEmail
     new(*args).call
   end
 
-  def initialize(team_members, current_time=Time.now)
-    @team_members = team_members
+  def initialize(recipients, current_time=Time.now)
+    @recipients = recipients
     @current_time = current_time
   end
 
-  attr_reader :current_time, :team_members
+  attr_reader :current_time, :recipients
 
   def call
     OutboundEmail.new(to: recipients, body: body, subject: subject)
   end
 
   private
-
-  def recipients
-    team_members.map do |name, email|
-      "#{name} <#{email}>"
-    end
-  end
 
   def body
     Email.last_24_hours(current_time).map do |email|

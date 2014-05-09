@@ -3,22 +3,18 @@ class BuildReminderEmail
     new(*args).call
   end
 
-  def initialize(team_member, current_time=Time.now)
-    @team_member = team_member
+  def initialize(recipient, current_time=Time.now)
+    @recipient = recipient
     @current_time = current_time
   end
 
-  attr_reader :team_member, :current_time
+  attr_reader :recipient, :current_time
 
   def call
     OutboundEmail.new(to: recipient, body: body, subject: subject)
   end
 
   private
-
-  def recipient
-    "#{team_member[0]} <#{team_member[1]}>"
-  end
 
   def body
     "What did you do today?"

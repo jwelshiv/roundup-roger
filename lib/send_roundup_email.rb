@@ -1,11 +1,6 @@
-TEAM_MEMBERS = {
-  #"Philippe Creux" => "pcreux@gmail.com",
-  "Jenn Cooper" => "cooper.jennl@gmail.com"
-}
-
 class SendRoundupEmail
   def self.call
-    email = BuildRoundupEmail.call(TEAM_MEMBERS)
+    email = BuildRoundupEmail.call(ENV['EMAIL_TO'])
     SendOutboundEmail.call(email)
   end
 end
