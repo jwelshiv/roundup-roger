@@ -1,7 +1,7 @@
 class SendOutboundEmail
   def self.call(email)
     Pony.mail({
-      :to => email.to.join(", "),
+      :to => email.to,
       :from => ENV['EMAIL_FROM'], 
       :subject => email.subject, 
       :body => email.body,
