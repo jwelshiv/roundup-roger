@@ -22,7 +22,11 @@ class BuildRoundupEmail
 
 #{email.stripped_body}
 
+
+
 #{separator}
+
+
 
 "
     end.join
