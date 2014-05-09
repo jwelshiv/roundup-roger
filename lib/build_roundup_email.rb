@@ -21,10 +21,20 @@ class BuildRoundupEmail
       "#{email.from_name}
 
 #{email.stripped_body}"
-    end.join("\n------------------------\n\n")
+    end.join("\n\n #{separator} \n\n")
   end
 
   def subject
     "Roundup for #{current_time.strftime("%A, %-d %B")}"
+  end
+
+  def separator
+    [
+      "¸.·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º>",
+      "┏(-_-)┛┗(-_-﻿ )┓┗(-_-)┛┏(-_-)┓",
+      "♪┏(°.°)┛┗(°.°)┓┗(°.°)┛┏(°.°)┓ ♪",
+      "▇ ▅ █ ▅ ▇ ▂ ▃ ▁ ▁ ▅ ▃ ▅ ▅ ▄ ▅ ▇",
+      "°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸"
+      ].sample
   end
 end
