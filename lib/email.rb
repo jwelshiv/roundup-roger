@@ -22,6 +22,6 @@ class Email
   end
 
   def stripped_body
-    body.gsub(/(?:\z|(--.*|On [^\n]+\n+\>.*))/m, "")
+    body.gsub(/\n(--|On [^\n]+\n?[^\n]+\n+\>).*/m, "").strip
   end
 end
