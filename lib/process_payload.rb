@@ -28,6 +28,6 @@ class ProcessPayload
   end
 
   def body
-    payload['msg']['text'].split("\n-- \n")[0]
+    payload['msg']['text']
   end
 end

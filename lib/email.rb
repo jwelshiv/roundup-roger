@@ -20,4 +20,8 @@ class Email
   def self.last_24_hours(current_time=Time.now)
     self.db.where{created_at > (current_time - 3600 * 24)}.map { |attributes| new(attributes)}
   end
+
+  def stripped_body
+    body.gsub(/(?:\z|(--.*|On [^\n]+\n+\>.*))/m, "")
+  end
 end

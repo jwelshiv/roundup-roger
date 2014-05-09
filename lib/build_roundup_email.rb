@@ -18,8 +18,10 @@ class BuildRoundupEmail
 
   def body
     Email.last_24_hours(current_time).map do |email|
-      "#{email.from_name} #{email.body}"
-    end.join
+      "#{email.from_name}
+
+#{email.stripped_body}"
+    end.join("\n------------------------\n\n")
   end
 
   def subject
