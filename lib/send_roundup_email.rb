@@ -1,5 +1,5 @@
 TEAM_MEMBERS = {
- # "Philippe Creux" => "pcreux@gmail.com",
+  "Philippe Creux" => "pcreux@gmail.com",
   "Jenn Cooper" => "cooper.jennl@gmail.com"
 }
 

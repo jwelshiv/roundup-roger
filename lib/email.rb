@@ -1,5 +1,4 @@
 class Email
-
   def self.create(attributes)
     emails = DB[:emails]
     emails.insert(new(attributes).attributes.select { |k, v| !v.nil? })
