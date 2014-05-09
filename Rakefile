@@ -15,3 +15,6 @@ task :send_roundup do
   SendRoundupEmail.call
 end
 
+task :send_reminders do
+  SendReminderEmails.call
+end
