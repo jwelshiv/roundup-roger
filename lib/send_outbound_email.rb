@@ -11,7 +11,7 @@ class SendOutboundEmail
         :port           => ENV['SMTP_PORT'],
         :user_name      => ENV['SMTP_USER_NAME'],
         :password       => ENV['SMTP_PASSWORD'],
-        :authentication => :plain, # :plain, :login, :cram_md5, no auth by default
+        :authentication => :plain # :plain, :login, :cram_md5, no auth by default
       }
     })
   end
