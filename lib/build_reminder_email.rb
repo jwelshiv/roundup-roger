@@ -17,9 +17,7 @@ class BuildReminderEmail
   private
 
   def recipient
-    team_member.map do |name, email|
-      "#{name} <#{email}>"
-    end
+    "#{team_member[0]} <#{team_member[1]}>"
   end
 
   def body

@@ -1,7 +1,7 @@
 require 'roundup_roger'
 
 describe BuildReminderEmail do
-  let(:team_member) { {"Philippe Creux" => "pcreux@gmail.com"} }
+  let(:team_member) { ["Philippe Creux", "pcreux@gmail.com"] }
   let(:outbound_email) { BuildReminderEmail.call(team_member, Time.new(2014, 05, 02, 8)) }
   
   it "works" do
