@@ -1,11 +1,9 @@
-require 'date'
-
 class BuildRoundupEmail
   def self.call(*args)
     new(*args).call
   end
 
-  def initialize(recipients, current_time=DateTime.now)
+  def initialize(recipients, current_time=Time.now)
     @recipients = recipients
     @current_time = current_time
   end
@@ -19,7 +17,7 @@ class BuildRoundupEmail
   private
 
   def body
-    Email.last_24_hours(current_time).map do |email|
+    Email.last_business_day(current_time).map do |email|
       "#{email.from_name}:
 
 #{email.stripped_body}
@@ -35,7 +33,7 @@ class BuildRoundupEmail
   end
 
   def subject
-    "Roundup for #{(current_time-1).strftime("%A, %-d %B")}"
+    "Roundup for #{(1.business_day.before(current_time)).strftime("%A, %-d %B")}"
   end
 
   def separator

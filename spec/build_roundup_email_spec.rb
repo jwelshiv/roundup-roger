@@ -13,11 +13,12 @@ describe BuildRoundupEmail do
   end
 
   it "should have the inbound emails from the day in the body" do
-    Email.create(from_name: "Philippe Creux", from_email: "pcreux@gmail.com", body: "Hello!", created_at: Time.new(2014, 05, 01, 18))
+    DB[:emails].delete
+    Email.create(from_name: "Philippe Creux", from_email: "pcreux@gmail.com", body: "Hello!", created_at: Time.now)
     expect(outbound_email.body).to include "Hello!"
   end
 
   it "should have a subject" do
-    expect(outbound_email.subject).to eq "Roundup for Friday, 2 May"
+    expect(outbound_email.subject).to eq "Roundup for Thursday, 1 May"
   end
 end

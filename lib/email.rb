@@ -18,7 +18,11 @@ class Email
   attribute :created_at, Time, default: proc { Time.now }
 
   def self.last_24_hours(current_time=Time.now)
-    self.db.where{created_at > (current_time - 3600 * 24)}.map { |attributes| new(attributes)}
+    self.db.where{created_at > (current_time - 3600 * 24)}.map { |attributes| new(attributes) }
+  end
+
+  def self.last_business_day(current_time=Time.now)
+    self.db.where{created_at > 1.business_day.before(current_time)}.map { |attributes| new(attributes) }
   end
 
   def stripped_body
