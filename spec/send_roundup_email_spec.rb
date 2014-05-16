@@ -9,6 +9,6 @@ describe SendRoundupEmail do
 
   it "doesn't send when there are no emails in the last 24 hours" do
     DB[:emails].delete
-    expect(SendRoundupEmail.call).to be_false
+    expect(SendRoundupEmail.call).to be_nil
   end
 end
