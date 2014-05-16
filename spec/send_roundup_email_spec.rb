@@ -12,10 +12,19 @@ describe SendRoundupEmail do
     expect(SendRoundupEmail.call(Time.now)).to be_nil
   end
 
-  it "doesn't send on Saturday, but sends on Monday instead" do
+  it "doesn't send on Saturday" do
     DB[:emails].delete
     email = Email.create(body: "hi there", created_at: Time.new(2014, 05, 02, 18))
-    expect(SendRoundupEmail.call(Time.new(2014, 05, 03, 7))).to be_nil
-    expect(SendRoundupEmail.call(Time.new(2014, 05, 05, 7))).to_not be_nil
+
+    expect(SendOutboundEmail).to_not receive :call
+    SendRoundupEmail.call(Time.new(2014, 05, 03, 7))
+  end
+
+  it "does send on Monday" do
+    DB[:emails].delete
+    email = Email.create(body: "hi there", created_at: Time.new(2014, 05, 02, 18))
+
+    expect(SendOutboundEmail).to receive :call
+    SendRoundupEmail.call(Time.new(2014, 05, 05, 7))
   end
 end
