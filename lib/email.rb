@@ -25,6 +25,10 @@ class Email
     self.db.where{created_at > 1.business_day.before(current_time)}.map { |attributes| new(attributes) }
   end
 
+  def self.is_business_day?(current_time=Time.now)
+    not (current_time.saturday? || current_time.sunday?)
+  end
+
   def stripped_body
     body.gsub(/\n(--|On [^\n]+\n?[^\n]+\n+\>).*/m, "").strip
   end
