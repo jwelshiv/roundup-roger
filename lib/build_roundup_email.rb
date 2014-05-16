@@ -1,9 +1,11 @@
+require 'date'
+
 class BuildRoundupEmail
   def self.call(*args)
     new(*args).call
   end
 
-  def initialize(recipients, current_time=Time.now)
+  def initialize(recipients, current_time=DateTime.now)
     @recipients = recipients
     @current_time = current_time
   end
@@ -33,7 +35,7 @@ class BuildRoundupEmail
   end
 
   def subject
-    "Roundup for #{current_time.strftime("%A, %-d %B")}"
+    "Roundup for #{(current_time-1).strftime("%A, %-d %B")}"
   end
 
   def separator
