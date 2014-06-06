@@ -4,6 +4,7 @@ class SendOutboundEmail
       :to => email.to,
       :from => ENV['EMAIL_FROM'], 
       :subject => email.subject, 
+      :headers => { 'Content-Type' => 'text/html' },
       :body => email.body,
       :via => :smtp,
       :via_options => {
