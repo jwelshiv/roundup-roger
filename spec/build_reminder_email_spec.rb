@@ -13,10 +13,10 @@ describe BuildReminderEmail do
   end
 
   it "should have a subject" do
-    expect(outbound_email.subject).to eq "Standup Reminder for Friday, 2 May"
+    expect(outbound_email.subject).to eq "What did you do today? Standup Reminder for Friday, 2 May"
   end
 
-  it "should have a body" do
-    expect(outbound_email.body).to eq "What did you do today?"
+  it "should have an empty body" do
+    expect(outbound_email.body).to eq ""
   end
 end

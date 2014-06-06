@@ -17,10 +17,10 @@ class BuildReminderEmail
   private
 
   def body
-    "What did you do today?"
+    ""
   end
 
   def subject
-    "Standup Reminder for #{current_time.strftime("%A, %-d %B")}"
+    "What did you do today? Standup Reminder for #{current_time.strftime("%A, %-d %B")}"
   end
 end
