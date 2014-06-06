@@ -1,4 +1,6 @@
 class Email
+  PATTERNS = ['—\n+Sent', '--', '>? ?On'].freeze
+
   def self.create(attributes)
     emails = DB[:emails]
     emails.insert(new(attributes).attributes.select { |k, v| !v.nil? })
@@ -30,6 +32,13 @@ class Email
   end
 
   def stripped_body
-    body.gsub(/\n(--|>? ?On [^\n]+\n?[^\n]+\n+\>).*/m, "").strip
+    PATTERNS.each do |pattern|
+      self.body = strip_pattern(pattern)
+    end
+    body.strip
+  end
+
+  def strip_pattern(pattern)
+    body.gsub(/\n(#{pattern}| [^\n]+\n?[^\n]+\n+\>).*/m, "")
   end
 end

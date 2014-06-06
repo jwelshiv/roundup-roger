@@ -13,4 +13,9 @@ describe Email do
     body = "Hello\n> On May 28, 2014 at 12:31:44 AM, Roundup Roger (roger@rounduproger.brewhouse.io) wrote:\n> What did you do today?\n> Blah Blah some content."
     expect(Email.new(body: body).stripped_body).to eq "Hello"
   end
+
+  it "should also strip this email" do
+    body = "Hello\n—\nSent from Mailbox for iPhone"
+    expect(Email.new(body: body).stripped_body).to eq "Hello"
+  end
 end
