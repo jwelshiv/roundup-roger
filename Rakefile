@@ -13,8 +13,8 @@ task :email do
   puts response
 end
 
-task :send_roundup, :date do |t, args|
-  SendRoundupEmail.call(Time.parse(args[:date]))
+task :send_roundup do
+  SendRoundupEmail.call
 end
 
 task :send_reminders do
