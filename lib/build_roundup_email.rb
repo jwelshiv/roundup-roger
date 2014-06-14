@@ -18,7 +18,7 @@ class BuildRoundupEmail
 
   def body
     Email.last_business_day(current_time).map do |email|
-      "<h4>#{email.from_name}:</h4><p><pre>#{email.stripped_body}</pre></p><br /><p style='padding-bottom:10px; border-bottom:1px dotted #333;'>#{separator}</p><br />"
+      "<h4>#{email.from_name}:</h4><p>#{email.stripped_body}</p><br /><p style='padding-bottom:10px; border-bottom:1px dotted #333;'>#{separator}</p><br />"
     end.join
   end
 
