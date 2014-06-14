@@ -28,6 +28,6 @@ class ProcessPayload
   end
 
   def body
-    payload['msg']['text']
+    payload['msg']['html']
   end
 end
