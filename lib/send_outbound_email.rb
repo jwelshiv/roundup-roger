@@ -4,8 +4,9 @@ class SendOutboundEmail
       :to => email.to,
       :from => ENV['EMAIL_FROM'], 
       :subject => email.subject, 
-      :headers => { 'Content-Type' => 'text/html' },
+      :headers => { "Content-Type" => "multipart/mixed" },
       :body => email.body,
+      :html_body => email.body,
       :via => :smtp,
       :via_options => {
         :address        => ENV['SMTP_ADDRESS'],
