@@ -10,9 +10,9 @@ class SendRoundupEmail
   attr_reader :current_time
 
   def call
-    #if Email.is_business_day?(current_time) && Email.last_business_day(current_time).any?
+    if Email.is_business_day?(current_time) && Email.last_business_day(current_time).any?
       email = BuildRoundupEmail.call(ENV['EMAIL_TO'])
       SendOutboundEmail.call(email)
-    #end
+    end
   end
 end
