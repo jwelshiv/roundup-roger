@@ -8,11 +8,13 @@ task :console do
 end
 
 task :email do
-  SendOutboundEmail.call OutboundEmail.new(to: ["pcreux@gmail.com"], subject: "Moo!", body: "Hello!")
+  body = "<h4>Hello</h4>"
+  response = SendOutboundEmail.call OutboundEmail.new(to: ["cooper.jennl@gmail.com"], subject: "Moo!", body: body)
+  puts response
 end
 
-task :send_roundup do
-  SendRoundupEmail.call
+task :send_roundup, :date do |t, args|
+  SendRoundupEmail.call(Time.parse(args[:date]))
 end
 
 task :send_reminders do
