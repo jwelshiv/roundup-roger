@@ -28,6 +28,10 @@ class ProcessPayload
   end
 
   def body
-    payload['msg']['html']
+    if payload['msg']['html'].present?
+      payload['msg']['html']
+    else
+      payload['msg']['text']
+    end
   end
 end
