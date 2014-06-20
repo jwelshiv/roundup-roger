@@ -30,7 +30,7 @@ class BuildRoundupEmail
     [
       "█║▌│ █│║▌ ║││█║▌ │║║█║ │║║█║ █│║▌",
       "▇ ▅ █ ▅ ▇ ▂ ▃ ▁ ▁ ▅ ▃ ▅ ▅ ▄ ▅",
-      "▀▄▀Make something people wantx▄▀▄",
+      "▀▄▀Make something people want▄▀▄",
       "★★★★★★★★★★★★★★★★★★",
       "",
       ].sample
