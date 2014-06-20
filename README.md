@@ -4,7 +4,7 @@ Roundup Roger
 Roundup Roger is meant to replace a Standup or Scrum meeting. 
 
 ### How does Roundup Roger work?
-Reminder emails are send out everyday at the designated time.
+Reminder emails are sent out every day at the designated time.
 Each team member responds to the reminder email with the tasks they completed that day. The following day, a roundup email is sent to the entire team with each member's contributions from the previous day.
 
 ### Setup
@@ -14,3 +14,18 @@ Each team member responds to the reminder email with the tasks they completed th
   bundle install
   ```
 3. Add a .env file to the application root (use .env.example as a starting point).
+
+### Rake Tasks
+1. To send a test email
+  ```
+  rake send_test_email
+  ```
+2. To send reminder emails
+  ```
+  rake send_reminders
+  ```
+3. To send roundup email
+  ```
+  rake send_roundup
+  ```
+
