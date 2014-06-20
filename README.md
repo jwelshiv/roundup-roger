@@ -16,15 +16,15 @@ Each team member responds to the reminder email with the tasks they completed th
 3. Add a .env file to the application root (use .env.example as a starting point).
 
 ### Rake Tasks
-1. To send a test email
+To send a test email
   ```
   rake send_test_email
   ```
-2. To send reminder emails
+To send reminder emails
   ```
   rake send_reminders
   ```
-3. To send roundup email
+To send roundup email
   ```
   rake send_roundup
   ```
