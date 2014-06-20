@@ -7,9 +7,9 @@ task :console do
   IRB.start
 end
 
-task :email do
-  body = "<h4>Hello</h4>"
-  response = SendOutboundEmail.call OutboundEmail.new(to: ["cooper.jennl@gmail.com"], subject: "Moo!", body: body)
+task :send_test_email do
+  body = "<h2>Hello!</h2>This is a test email."
+  response = SendOutboundEmail.call OutboundEmail.new(to: [ENV['EMAIL_TO']], subject: "Test!", body: body)
   puts response
 end
 
