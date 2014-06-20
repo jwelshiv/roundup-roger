@@ -29,7 +29,7 @@ class BuildRoundupEmail
   def separator
     [
       "█║▌│ █│║▌ ║││█║▌ │║║█║ │║║█║ █│║▌",
-      "▀▄▀▄▀▄▀▄▀▄▀▄ Make something people want ▀▄▀▄▀▄▀▄▀▄▀▄",
+      "▀▄▀▄ Make something people want ▀▄▀▄",
       "★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★",
       ""
       ].sample
