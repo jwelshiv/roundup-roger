@@ -1,4 +1,5 @@
-Roundup Roger
+![roundup roger logo](https://dl.dropboxusercontent.com/u/79436/roundup_roger_logo1.png "Roundup Roger's new digs!")
+
 =============
 
 Roundup Roger helps teams perform a wrap up at the end of day. Great for teams working remotely or those that just finish at a different time.
